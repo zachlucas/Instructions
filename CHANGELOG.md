@@ -3,10 +3,19 @@ Important changes to Instructions will be documented in this file.
 Instructions follows [Semantic Versioning](http://semver.org/).
 However, until it reaches 1.0.0, some breaking changes are to be expected.
 
-## [0.5.0](https://github.com/ephread/Instructions/releases/tag/0.5.0)
-Released on 2016-09-06.
+## [0.5.1](https://github.com/ephread/Instructions/releases/tag/0.5.1)
+Released on 2016-09-21.
 
 ### Added
+- Add support for Swift 2.3
+
+### Fixed
+- Fix [#67] `coachMarkWillLoadForIndex` not being called.
+
+[#67]: https://github.com/ephread/Instructions/issues/67
+
+## [0.5.0](https://github.com/ephread/Instructions/releases/tag/0.5.0)
+Released on 2016-09-06.
 
 ### Fixed
 - Fix [#63] dataSource methods wrongly called during idle state.
