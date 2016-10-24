@@ -236,7 +236,7 @@ extension FlowManager: CoachMarksViewControllerDelegate {
     }
 
     func didTapSkipView(skipView: CoachMarkSkipView?) {
-        stopFlow()
+        stopFlow(immediately: false, userDidSkip: true, shouldCallDelegate: true)
     }
 
     func willTransition() {
