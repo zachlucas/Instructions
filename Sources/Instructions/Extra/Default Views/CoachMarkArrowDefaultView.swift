@@ -52,7 +52,17 @@ public class CoachMarkArrowDefaultView: UIImageView, CoachMarkArrowView {
 private extension CoachMarkArrowDefaultView {
     func initializeConstraints() {
         self.translatesAutoresizingMaskIntoConstraints = false
-        self.widthAnchor.constraint(equalToConstant: self.image!.size.width).isActive = true
-        self.heightAnchor.constraint(equalToConstant: self.image!.size.height).isActive = true
+
+        let constraint1 = NSLayoutConstraint(item: self, attribute: .width,
+                                             relatedBy: .equal,
+                                             toItem: nil, attribute: .notAnAttribute,
+                                             multiplier: 1.0, constant: self.image!.size.width)
+
+        let constraint2 = NSLayoutConstraint(item: self, attribute: .height,
+                                             relatedBy: .equal,
+                                             toItem: nil, attribute: .notAnAttribute,
+                                             multiplier: 1.0, constant: self.image!.size.height)
+
+        self.addConstraints([constraint1, constraint2])
     }
 }

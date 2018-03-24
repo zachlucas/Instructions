@@ -42,10 +42,17 @@ internal extension UIView {
             return []
         }
 
-        return [
-            topAnchor.constraint(equalTo: superview.topAnchor),
-            bottomAnchor.constraint(equalTo: superview.bottomAnchor)
-        ]
+        let constraint1 = NSLayoutConstraint(item: self, attribute: .top,
+                                             relatedBy: .equal,
+                                             toItem: superview, attribute: .top,
+                                             multiplier: 1.0, constant: 0)
+
+        let constraint2 = NSLayoutConstraint(item: self, attribute: .bottom,
+                                             relatedBy: .equal,
+                                             toItem: superview, attribute: .bottom,
+                                             multiplier: 1.0, constant: 0)
+
+        return [constraint1, constraint2]
     }
 
     func makeConstraintToFillSuperviewHorizontally() -> [NSLayoutConstraint] {
@@ -54,9 +61,16 @@ internal extension UIView {
             return []
         }
 
-        return [
-            leadingAnchor.constraint(equalTo: superview.leadingAnchor),
-            trailingAnchor.constraint(equalTo: superview.trailingAnchor)
-        ]
+        let constraint1 = NSLayoutConstraint(item: self, attribute: .leading,
+                                             relatedBy: .equal,
+                                             toItem: superview, attribute: .leading,
+                                             multiplier: 1.0, constant: 0)
+
+        let constraint2 = NSLayoutConstraint(item: self, attribute: .trailing,
+                                             relatedBy: .equal,
+                                             toItem: superview, attribute: .trailing,
+                                             multiplier: 1.0, constant: 0)
+
+        return [constraint1, constraint2]
     }
 }

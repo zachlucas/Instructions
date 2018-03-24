@@ -26,9 +26,16 @@ extension UIView {
     internal func fillSuperview() {
         guard let superview = superview else { return }
 
-        self.topAnchor.constraint(equalTo: superview.topAnchor).isActive = true
-        self.bottomAnchor.constraint(equalTo: superview.bottomAnchor).isActive = true
-        self.leadingAnchor.constraint(equalTo: superview.leadingAnchor).isActive = true
-        self.trailingAnchor.constraint(equalTo: superview.trailingAnchor).isActive = true
+        let noOption = NSLayoutFormatOptions(rawValue: 0)
+        let constraints1 = NSLayoutConstraint.constraints(withVisualFormat: "V:|[self]|",
+                                                         options: noOption,
+                                                         metrics: nil, views: ["self": self])
+
+        let constraints2 = NSLayoutConstraint.constraints(withVisualFormat: "H:|[self]|",
+                                                         options: noOption,
+                                                         metrics: nil, views: ["self": self])
+
+        superview.addConstraints(constraints1)
+        superview.addConstraints(constraints2)
     }
 }

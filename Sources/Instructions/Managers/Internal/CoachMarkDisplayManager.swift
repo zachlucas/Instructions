@@ -178,8 +178,10 @@ class CoachMarkDisplayManager {
                                  cutoutPath.bounds.origin.y + offset)
 
                 let coachMarkViewConstraint =
-                    coachMarkView.bottomAnchor.constraint(equalTo: parentView.bottomAnchor,
-                                                          constant: constant)
+                    NSLayoutConstraint(item: coachMarkView, attribute: .bottom,
+                                       relatedBy: .equal,
+                                       toItem: parentView, attribute: .bottom,
+                                       multiplier: 1.0, constant: constant)
 
                 parentView.addConstraint(coachMarkViewConstraint)
             } else {
@@ -187,8 +189,10 @@ class CoachMarkDisplayManager {
                                 cutoutPath.bounds.size.height) + offset
 
                 let coachMarkViewConstraint =
-                    coachMarkView.topAnchor.constraint(equalTo: parentView.topAnchor,
-                                                       constant: constant)
+                    NSLayoutConstraint(item: coachMarkView, attribute: .top,
+                                       relatedBy: .equal,
+                                       toItem: parentView, attribute: .top,
+                                       multiplier: 1.0, constant: constant)
 
                 parentView.addConstraint(coachMarkViewConstraint)
             }

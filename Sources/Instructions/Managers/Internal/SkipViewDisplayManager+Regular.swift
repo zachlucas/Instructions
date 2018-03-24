@@ -24,10 +24,7 @@ import UIKit
 
 extension SkipViewDisplayManager {
     func updateTopConstant(from original: CGFloat) -> CGFloat {
-        if #available(iOS 11.0, *) {
-            let window = UIApplication.shared.keyWindow
-            return window?.safeAreaInsets.top ?? original
-        } else if !UIApplication.shared.isStatusBarHidden {
+        if !UIApplication.shared.isStatusBarHidden {
             return UIApplication.shared.statusBarFrame.size.height
         }
 

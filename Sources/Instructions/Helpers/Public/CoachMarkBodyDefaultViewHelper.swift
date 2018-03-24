@@ -40,10 +40,17 @@ open class CoachMarkBodyDefaultViewHelper {
     func makeVerticalConstraints(for hint: UITextView) -> [NSLayoutConstraint] {
         guard let superview = hint.superview else { return [] }
 
-        return [
-            hint.topAnchor.constraint(equalTo: superview.topAnchor, constant: 5),
-            superview.bottomAnchor.constraint(equalTo: hint.bottomAnchor, constant: 5)
-        ]
+        let constraint1 = NSLayoutConstraint(item: hint, attribute: .top,
+                                             relatedBy: .equal,
+                                             toItem: superview, attribute: .top,
+                                             multiplier: 1.0, constant: 5)
+
+        let constraint2 = NSLayoutConstraint(item: superview, attribute: .bottom,
+                                             relatedBy: .equal,
+                                             toItem: hint, attribute: .bottom,
+                                             multiplier: 1.0, constant: 5)
+
+        return [constraint1, constraint2]
     }
 
     func configureBackground(_ background: UIView, addTo parent: UIView) {
@@ -68,8 +75,17 @@ open class CoachMarkBodyDefaultViewHelper {
     func configureSimpleHint(_ hint: UITextView, addTo parent: UIView) {
         configureHint(hint, addTo: parent)
 
-        hint.leadingAnchor.constraint(equalTo: parent.leadingAnchor, constant: 10).isActive = true
-        parent.trailingAnchor.constraint(equalTo: hint.trailingAnchor, constant: 10).isActive = true
+        let constraint1 = NSLayoutConstraint(item: hint, attribute: .leading,
+                                             relatedBy: .equal,
+                                             toItem: parent, attribute: .leading,
+                                             multiplier: 1.0, constant: 10)
+
+        let constraint2 = NSLayoutConstraint(item: parent, attribute: .trailing,
+                                             relatedBy: .equal,
+                                             toItem: hint, attribute: .trailing,
+                                             multiplier: 1.0, constant: 10)
+
+        parent.addConstraints([constraint1, constraint2])
     }
 
     func configureNext(_ next: UILabel, addTo parent: UIView) {
@@ -89,10 +105,17 @@ open class CoachMarkBodyDefaultViewHelper {
 
         parent.addSubview(separator)
 
-        separator.topAnchor.constraint(equalTo: parent.topAnchor,
-                                       constant: 15).isActive = true
-        parent.bottomAnchor.constraint(equalTo: separator.bottomAnchor,
-                                       constant: 15).isActive = true
+        let constraint1 = NSLayoutConstraint(item: separator, attribute: .top,
+                                             relatedBy: .equal,
+                                             toItem: parent, attribute: .top,
+                                             multiplier: 1.0, constant: 15)
+
+        let constraint2 = NSLayoutConstraint(item: parent, attribute: .bottom,
+                                             relatedBy: .equal,
+                                             toItem: separator, attribute: .bottom,
+                                             multiplier: 1.0, constant: 15)
+
+        parent.addConstraints([constraint1, constraint2])
     }
 
     private func configureTextPropertiesOfHint(_ hint: UITextView) {

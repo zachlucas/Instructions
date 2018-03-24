@@ -148,8 +148,17 @@ class CoachMarkView: UIView {
                 withProperties: (orientation: arrowOrientation, verticalArrowOffset: arrowOffset)
             ))
         } else {
-            self.addConstraint(bodyUIView.topAnchor.constraint(equalTo: topAnchor))
-            self.addConstraint(bodyUIView.bottomAnchor.constraint(equalTo: bottomAnchor))
+            let constraint1 = NSLayoutConstraint(item: bodyUIView, attribute: .top,
+                                                 relatedBy: .equal,
+                                                 toItem: self, attribute: .top,
+                                                 multiplier: 1.0, constant: 0)
+
+            let constraint2 = NSLayoutConstraint(item: bodyUIView, attribute: .bottom,
+                                                 relatedBy: .equal,
+                                                 toItem: self, attribute: .bottom,
+                                                 multiplier: 1.0, constant: 0)
+
+            self.addConstraints([constraint1, constraint2])
         }
     }
 }
