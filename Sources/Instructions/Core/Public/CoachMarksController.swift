@@ -82,6 +82,10 @@ public class CoachMarksController {
         return CoachMarkHelper(instructionsRootView: instructionsTopView,
                                flowManager: self.flow)
     }()
+    
+    public func instructionsRootViewInteraction(enabled: Bool) {
+        coachMarksViewController.instructionsRootView.isUserInteractionEnabled = enabled
+    }
 
     /// Handles the flow of coachmarks.
     fileprivate(set) public lazy var flow: FlowManager = {
